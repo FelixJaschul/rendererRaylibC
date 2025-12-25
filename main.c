@@ -1,16 +1,26 @@
 #include <raylib.h>
+#include <unistd.h>
 
-#define XRED (Color){ 88, 20, 20, 255 }
+#define XWIDTH 800
+#define XHEIGHT 600
+#define XFPS 60
 
-int main(void)
+int main()
 {
-    InitWindow(800, 600, "TEST"); SetTargetFPS(60);
+    InitWindow(XWIDTH, XHEIGHT, "TEST"); SetTargetFPS(XFPS);
+    Color colors[3] = { 
+        (Color){ 88, 20, 20, 255 }, 
+        (Color){ 20, 20, 88, 255 }, 
+        (Color){ 20, 88, 20, 255 } };
+    int current = 0;
     while (!WindowShouldClose())
     {
         BeginDrawing();
-        ClearBackground(XRED);
+        ClearBackground(colors[current]);
         EndDrawing();
-    }
-    CloseWindow();
+        current++; if (current > 2) current = 0;
+        usleep(2000*XFPS);
+    } CloseWindow();
     return 0;
 }
+
