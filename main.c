@@ -5,7 +5,7 @@
 #define XHEIGHT 600
 #define XFPS 60
 
-int main()
+int main() 
 {
     InitWindow(XWIDTH, XHEIGHT, "TEST"); SetTargetFPS(XFPS);
     Color colors[3] = { 
@@ -13,8 +13,8 @@ int main()
         (Color){ 20, 20, 88, 255 }, 
         (Color){ 20, 88, 20, 255 } };
     int current = 0;
-    while (!WindowShouldClose())
-    {
+    while (!WindowShouldClose()) 
+    {   
         BeginDrawing();
         ClearBackground(colors[current]);
         EndDrawing();
