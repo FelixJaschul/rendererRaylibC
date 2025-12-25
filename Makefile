@@ -16,7 +16,7 @@ run:
 
 
 n: clean 
-	nvim
+	nvim main.c
 
 
 # GIT HELPERS
